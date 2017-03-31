@@ -20,5 +20,3 @@ RUN \
     sha1sum /usr/src/joomla.tar.gz && \
     chmod -R 755 /hooks /init && \
     chmod 666 /etc/nginx/sites-enabled/site.conf
-
-WORKDIR /var/www/html
