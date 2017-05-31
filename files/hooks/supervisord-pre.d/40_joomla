@@ -7,6 +7,8 @@ if [[ $(find /var/www/$DOCUMENT_ROOT -mindepth 1 ! -name index.html -a ! -name i
     exit 0
 fi
 
+set -e
+
 echo >&2 "Joomla not found in /var/www/html - copying now..."
 
 rm -f /var/www/html/index.html
