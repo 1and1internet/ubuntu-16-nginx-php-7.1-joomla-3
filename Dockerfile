@@ -14,7 +14,8 @@ RUN \
     apt-get update &&\
     apt-get install -y zip unzip libmcrypt-dev libpng12-dev libjpeg-dev php7.1-gd php7.1-mysql curl &&\
     rm -rf /var/lib/apt/lists/* &&\
-    JOOMLA_DOWNLOAD=https://downloads.joomla.org$(curl -fsL https://downloads.joomla.org/latest | grep -iEo '/cms/joomla3/.*-stable-full_package[-\.]tar[-\.]gz\?format=gz' | sort -nr | uniq | head -1) && \
+    # JOOMLA_DOWNLOAD=https://downloads.joomla.org$(curl -fsL https://downloads.joomla.org/latest | grep -iEo '/cms/joomla3/.*-stable-full_package[-\.]tar[-\.]gz\?format=gz' | sort -nr | uniq | head -1) && \
+    JOOMLA_DOWNLOAD=https://downloads.joomla.org$(curl -fsL https://downloads.joomla.org/cms/joomla3/3-7-3 | grep -iEo '/cms/joomla3/.*-stable-full_package[-\.]tar[-\.]gz\?format=gz' | sort -nr | uniq | head -1) && \
     echo "Downloading from $JOOMLA_DOWNLOAD" && \
     curl -fsL $JOOMLA_DOWNLOAD -o /usr/src/joomla.tar.gz && \
     sha1sum /usr/src/joomla.tar.gz && \
